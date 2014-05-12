@@ -72,14 +72,8 @@ GEM
       nokogiri (>= 1.5.0)
       rails (>= 3.0.0)
     diff-lcs (1.2.5)
-    dynamic_form (1.1.4)
     erubis (2.7.0)
     execjs (2.0.2)
-    factory_girl (4.2.0)
-      activesupport (>= 3.0.0)
-    factory_girl_rails (4.2.1)
-      factory_girl (~> 4.2.0)
-      railties (>= 3.0.0)
     faker (1.1.2)
       i18n (~> 0.5)
     ffi (1.9.3)
@@ -221,8 +215,6 @@ GEM
       polyglot (>= 0.3.1)
     turbolinks (1.1.1)
       coffee-rails
-    twitter-bootstrap-form-builder (0.0.13)
-      dynamic_form (~> 1.1.4)
     tzinfo (0.3.39)
     uglifier (2.1.1)
       execjs (>= 0.3.0)
@@ -244,7 +236,6 @@ DEPENDENCIES
   coffee-rails (= 4.0.1)
   cucumber-rails (= 1.4.0)
   database_cleaner!
-  factory_girl_rails (= 4.2.1)
   faker (= 1.1.2)
   guard-rspec (= 2.5.0)
   guard-spork (= 1.5.0)
@@ -266,6 +257,5 @@ DEPENDENCIES
   terminal-notifier-guard
   therubyracer
   turbolinks (= 1.1.1)
-  twitter-bootstrap-form-builder
   uglifier (= 2.1.1)
   will_paginate (= 3.0.4)

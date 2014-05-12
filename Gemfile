@@ -9,7 +9,6 @@ gem 'bcrypt-ruby', '3.1.2'
 gem 'faker', '1.1.2'
 gem 'will_paginate', '3.0.4'
 gem 'bootstrap-will_paginate', '0.0.9'
-gem 'twitter-bootstrap-form-builder'
 
 group :development, :test do
   gem 'sqlite3', '1.3.8'
@@ -36,7 +35,6 @@ group :test do
     gem 'libnotify'
   end
 
-  gem 'factory_girl_rails', '4.2.1'
   gem 'cucumber-rails', '1.4.0', :require => false
   gem 'database_cleaner', git: 'https://github.com/bmabey/database_cleaner.git'
 end

@@ -1,19 +1,63 @@
 <% provide(:title, "Generate Password") %>
 <h1>Generate Password</h1>
 
-<div class="row">
-	<div class="span8 offset3">
-		<%= form_for :password, url: password_generator_path,
-				remote: true do |f| %>
-				<%= f.label :camel_case, :class => "checkbox" do %>
-					<%= f.check_box :camel_case %>Camel Case
-				<% end %>
+<%= form_for :password, url: password_generator_path,
+		remote: true, html: { class: "form-horizontal" } do |f| %>
 
-				<div class="span2">
-				<%= f.label :word_count %>
-				<%= f.select :word_count, 1..5, {}, class: "btn btn-mini" %>
+    <fieldset>
+      <legend>Password parameters</legend>
+      <div class="control-group">
+        <label class="control-label" for="password_word_count">Word count</label>
+        <div class="controls">
+					<%= f.select :word_count, 1..5 %>
 				</div>
+			</div>
+
+			<div class="control-group">
+				<label class="control-label" for="password_camel_case">Camel Case</label>
+				<div class="controls">
+	        <label class="checkbox">
+						<%= f.check_box :camel_case %>
+					</label>
+				</div>
+			</div>
+
+			<div class="control-group">
+				<label class="control-label" for="password_common_substitutions">Common Substitutions</label>
+				<div class="controls">
+	        <label class="checkbox">
+						<%= f.check_box :common_substitutions %>
+					</label>
+				</div>
+			</div>
+
+			<div class="control-group">
+				<label class="control-label" for="password_keep_spaces">Keep Spaces</label>
+				<div class="controls">
+	        <label class="checkbox">
+						<%= f.check_box :keep_spaces %>
+					</label>
+				</div>
+			</div>
+
+			<div class="control-group">
+				<label class="control-label" for="password_dictionary_words">Dictionary Words</label>
+				<div class="controls">
+	        <label class="checkbox">
+						<%= f.check_box :dictionary_words %>
+					</label>
+				</div>
+			</div>
+
+
+      <div class="form-actions">
 				<%= f.submit "Generate", class: "btn btn-primary" %>
-		<% end %>
-	</div>
-</div>
+      </div>
+
+      <label class="control-label" for="input01">Text input</label>  
+          <div class="controls">  
+            <input type="text" class="input-xlarge" id="input01">  
+            <p class="help-block">In addition to freeform text, any HTML5 text-based input appears like so.</p>  
+          </div>  
+    </fieldset>
+<% end %>
