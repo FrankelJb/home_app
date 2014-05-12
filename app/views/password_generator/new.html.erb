@@ -1,0 +1,19 @@
+<% provide(:title, "Generate Password") %>
+<h1>Generate Password</h1>
+
+<div class="row">
+	<div class="span8 offset3">
+		<%= form_for :password, url: password_generator_path,
+				remote: true do |f| %>
+				<%= f.label :camel_case, :class => "checkbox" do %>
+					<%= f.check_box :camel_case %>Camel Case
+				<% end %>
+
+				<div class="span2">
+				<%= f.label :word_count %>
+				<%= f.select :word_count, 1..5, {}, class: "btn btn-mini" %>
+				</div>
+				<%= f.submit "Generate", class: "btn btn-primary" %>
+		<% end %>
+	</div>
+</div>

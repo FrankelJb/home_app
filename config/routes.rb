@@ -1,4 +1,13 @@
 HomeApp::Application.routes.draw do
+  get "static_pages/home"
+  get "static_pages/help"
+  root 'static_pages#home'
+  resources :password_generator do
+    member do
+      get :new
+      post :create
+    end
+  end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
