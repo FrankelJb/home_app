@@ -1,7 +1,7 @@
 class PasswordGeneratorController < ApplicationController
 
 	def create
-		words = File.readlines(File.join(Rails.root, 'config', 'fewer_words.txt'))
+		words = File.readlines(File.join(Rails.root, 'config', 'words.txt'))
 		@password = ''
 		@indices = []
 		params[:password][:word_count].to_i.times do

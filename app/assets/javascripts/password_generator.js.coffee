@@ -4,10 +4,10 @@
 $ ->
 	replacements_backward = {0: 'o', 1: 'i', 2: 'z', 3: 'e', 4: 'a', 5: 's', 7: 't', 8: 'b', 9: 'g'}
 	replacements_forward = {'o': 0, 'i': 1, 'z': 2, 'e': 3, 'a': 4, 's': 5, 't': 7, 'b': 8, 'g': 9}
+	
 	$('#password_numbers_for_letters').click ->
 		word = $('#password_input').val()
 		if !$('#password_expires_in_three_months').is(':checked')
-			$('#alert-text').html('')
 			if $('#password_numbers_for_letters').is(':checked')
 				for key, value of replacements_forward
 					re = new RegExp(key, "g")
@@ -18,7 +18,8 @@ $ ->
 					word = word.replace(re, value)
 			$('#password_input').val(word)
 		else
-			$('#alert-text').html('Date may become numbers')
+			if $('#password_expires_in_three_months_inner_label').text().length == 13
+				$('#password_expires_in_three_months_inner_label').append('<span id="alert-text">Date may become numbers</span>')
 			
 	$('#password_camel_case').click ->
 		word = $('#password_input').val()
@@ -66,6 +67,7 @@ $ ->
 
 	$('#password_expires_in_three_months').click ->
 		if !$('#password_expires_in_three_months').is(':checked')
+			console.log($('#alert-text').remove())
 			$('#password_input').val($('#password_input').val().
 															 substring(0,	$('#password_input').val().length - 6))
 		else
