@@ -23,6 +23,15 @@
 			</div>
 
 			<div class="control-group">
+				<label class="control-label" for="password_numbers_for_letters">Number for Letters</label>
+				<div class="controls">
+	        <label class="checkbox">
+						<%= f.check_box :numbers_for_letters %>
+					</label>
+				</div>
+			</div>
+
+			<div class="control-group">
 				<label class="control-label" for="password_common_substitutions">Common Substitutions</label>
 				<div class="controls">
 	        <label class="checkbox">
@@ -41,10 +50,11 @@
 			</div>
 
 			<div class="control-group">
-				<label class="control-label" for="password_dictionary_words">Dictionary Words</label>
+				<label class="control-label" for="password_expires_in_three_months">Expires in 3 Months</label>
 				<div class="controls">
 	        <label class="checkbox">
-						<%= f.check_box :dictionary_words %>
+						<%= f.check_box :expires_in_three_months %>
+						<p id="alert-text"></p>
 					</label>
 				</div>
 			</div>
@@ -54,10 +64,12 @@
 				<%= f.submit "Generate", class: "btn btn-primary" %>
       </div>
 
-      <label class="control-label" for="input01">Text input</label>  
+      <div id="indices">
+      </div>
+
+      <label class="control-label" for="password_input">Text input</label>  
           <div class="controls">  
-            <input type="text" class="input-xlarge" id="input01">  
-            <p class="help-block">In addition to freeform text, any HTML5 text-based input appears like so.</p>  
+            <input type="text" class="input-xlarge" id="password_input">
           </div>  
     </fieldset>
 <% end %>
