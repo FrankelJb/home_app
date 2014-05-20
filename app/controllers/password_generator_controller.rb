@@ -4,9 +4,17 @@ class PasswordGeneratorController < ApplicationController
 		words = File.readlines(File.join(Rails.root, 'config', 'words.txt'))
 		@password = ''
 		@indices = []
+
+		#Get one word out so that we can use alliteration
+		word = words[rand(words.count)].strip
+
+		if params[:password][:alliteration] == "1"
+			words.each { |word| word.chop! }
+			words = words.join(' ').scan(/\b[#{word[0]}]\w*\b/)
+		end
+
 		params[:password][:word_count].to_i.times do
 
-			word = words[rand(words.count)].strip
 			puts params[:password]
 			if params[:password][:numbers_for_letters] == "1"
 				word.gsub! 'o', '0'
@@ -47,6 +55,8 @@ class PasswordGeneratorController < ApplicationController
 			end
 
 			@password = @password + word
+
+			word = words[rand(words.count)].strip
 		end
 
 		if params[:password][:expires_in_three_months] == "1"
